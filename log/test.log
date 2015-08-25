@@ -1,0 +1,963 @@
+  [1m[36m (1.1ms)[0m  [1mCREATE TABLE "brands" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "category_id" integer, "brand_id" integer, "description" text, "price" decimal, "quantity" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (1.0ms)[0m  [1mCREATE  INDEX "index_products_on_brand_id" ON "products" ("brand_id")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_products_on_brand_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_products_on_brand_id' AND type='index'
+
+  [1m[36m (0.8ms)[0m  [1mCREATE  INDEX "index_products_on_category_id" ON "products" ("category_id")[0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "name" varchar, "role" integer) 
+  [1m[36m (0.8ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.8ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.9ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.8ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150825141252')[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150825134331')
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150825134333')[0m
+  [1m[35m (0.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150825134337')
+  [1m[36m (1.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150825141125')[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150825141141')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "brands"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "categories"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "products"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('MyString', NULL, NULL, 'MyText', 9.99, 1, '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('MyString', NULL, NULL, 'MyText', 9.99, 1, '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+SQLite3::ConstraintException: UNIQUE constraint failed: users.email: INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+  [1m[36m (0.8ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "brands"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "categories"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "products"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('MyString', NULL, NULL, 'MyText', 9.99, 1, '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('MyString', NULL, NULL, 'MyText', 9.99, 1, '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+SQLite3::ConstraintException: UNIQUE constraint failed: users.email: INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "brands"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "categories"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "products"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('MyString', NULL, NULL, 'MyText', 9.99, 1, '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('MyString', NULL, NULL, 'MyText', 9.99, 1, '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+SQLite3::ConstraintException: UNIQUE constraint failed: users.email: INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "brands"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "categories"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "products"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('MyString', NULL, NULL, 'MyText', 9.99, 1, '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('MyString', NULL, NULL, 'MyText', 9.99, 1, '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+SQLite3::ConstraintException: UNIQUE constraint failed: users.email: INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "brands"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "categories"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "products"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('MyString', NULL, NULL, 'MyText', 9.99, 1, '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('MyString', NULL, NULL, 'MyText', 9.99, 1, '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)[0m
+  [1m[35mFixture Insert (0.5ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+SQLite3::ConstraintException: UNIQUE constraint failed: users.email: INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "brands"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "categories"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "products"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('MyString', NULL, NULL, 'MyText', 9.99, 1, '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('MyString', NULL, NULL, 'MyText', 9.99, 1, '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+SQLite3::ConstraintException: UNIQUE constraint failed: users.email: INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "brands"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "categories"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "products"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('MyString', NULL, NULL, 'MyText', 9.99, 1, '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('MyString', NULL, NULL, 'MyText', 9.99, 1, '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)[0m
+  [1m[35mFixture Insert (0.5ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+SQLite3::ConstraintException: UNIQUE constraint failed: users.email: INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "brands"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "categories"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "products"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('MyString', NULL, NULL, 'MyText', 9.99, 1, '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('MyString', NULL, NULL, 'MyText', 9.99, 1, '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+SQLite3::ConstraintException: UNIQUE constraint failed: users.email: INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "brands"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "categories"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "products"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('MyString', NULL, NULL, 'MyText', 9.99, 1, '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('MyString', NULL, NULL, 'MyText', 9.99, 1, '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+SQLite3::ConstraintException: UNIQUE constraint failed: users.email: INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "brands"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "categories"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "products"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('MyString', NULL, NULL, 'MyText', 9.99, 1, '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('MyString', NULL, NULL, 'MyText', 9.99, 1, '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+SQLite3::ConstraintException: UNIQUE constraint failed: users.email: INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "brands"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "categories"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "products"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('MyString', NULL, NULL, 'MyText', 9.99, 1, '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('MyString', NULL, NULL, 'MyText', 9.99, 1, '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+SQLite3::ConstraintException: UNIQUE constraint failed: users.email: INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "brands"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "categories"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "products"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('MyString', NULL, NULL, 'MyText', 9.99, 1, '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('MyString', NULL, NULL, 'MyText', 9.99, 1, '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)[0m
+  [1m[35mFixture Insert (0.5ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+SQLite3::ConstraintException: UNIQUE constraint failed: users.email: INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "brands"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "categories"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "products"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('MyString', NULL, NULL, 'MyText', 9.99, 1, '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('MyString', NULL, NULL, 'MyText', 9.99, 1, '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+SQLite3::ConstraintException: UNIQUE constraint failed: users.email: INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "brands"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "categories"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "products"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('MyString', NULL, NULL, 'MyText', 9.99, 1, '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('MyString', NULL, NULL, 'MyText', 9.99, 1, '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+SQLite3::ConstraintException: UNIQUE constraint failed: users.email: INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "brands"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "categories"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "products"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('MyString', NULL, NULL, 'MyText', 9.99, 1, '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('MyString', NULL, NULL, 'MyText', 9.99, 1, '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)[0m
+  [1m[35mFixture Insert (0.5ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+SQLite3::ConstraintException: UNIQUE constraint failed: users.email: INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "brands"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "categories"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "products"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('MyString', NULL, NULL, 'MyText', 9.99, 1, '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('MyString', NULL, NULL, 'MyText', 9.99, 1, '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+SQLite3::ConstraintException: UNIQUE constraint failed: users.email: INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "brands"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "categories"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "products"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('MyString', NULL, NULL, 'MyText', 9.99, 1, '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('MyString', NULL, NULL, 'MyText', 9.99, 1, '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+SQLite3::ConstraintException: UNIQUE constraint failed: users.email: INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "brands"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "categories"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "products"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('MyString', NULL, NULL, 'MyText', 9.99, 1, '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('MyString', NULL, NULL, 'MyText', 9.99, 1, '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)[0m
+  [1m[35mFixture Insert (0.5ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+SQLite3::ConstraintException: UNIQUE constraint failed: users.email: INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "brands"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "categories"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "products"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('MyString', NULL, NULL, 'MyText', 9.99, 1, '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('MyString', NULL, NULL, 'MyText', 9.99, 1, '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)[0m
+  [1m[35mFixture Insert (0.5ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+SQLite3::ConstraintException: UNIQUE constraint failed: users.email: INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "brands"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "categories"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "products"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('MyString', NULL, NULL, 'MyText', 9.99, 1, '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('MyString', NULL, NULL, 'MyText', 9.99, 1, '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+SQLite3::ConstraintException: UNIQUE constraint failed: users.email: INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "brands"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "categories"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "products"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('MyString', NULL, NULL, 'MyText', 9.99, 1, '2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('MyString', NULL, NULL, 'MyText', 9.99, 1, '2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 980190962)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+SQLite3::ConstraintException: UNIQUE constraint failed: users.email: INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2015-08-25 14:37:22', '2015-08-25 14:37:22', 298486374)
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "brands"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:41:51', '2015-08-25 14:41:51', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:41:51', '2015-08-25 14:41:51', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "categories"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:41:51', '2015-08-25 14:41:51', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:41:51', '2015-08-25 14:41:51', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "products"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('MyString', NULL, NULL, 'MyText', 9.99, 1, '2015-08-25 14:41:51', '2015-08-25 14:41:51', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('MyString', NULL, NULL, 'MyText', 9.99, 1, '2015-08-25 14:41:51', '2015-08-25 14:41:51', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('noneed@toknow.com', '2015-08-25 14:41:51', '2015-08-25 14:41:51', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('stillnoneed@toknow.com', '2015-08-25 14:41:51', '2015-08-25 14:41:51', 298486374)
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------
+ProductsControllerTest: test_should_create_product
+--------------------------------------------------
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "products"
+Processing by ProductsController#create as HTML
+  Parameters: {"product"=>{"brand_id"=>nil, "category_id"=>nil, "description"=>"MyText", "name"=>"MyString", "price"=>"9.99", "quantity"=>"1"}}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "products" ("name", "description", "price", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "MyString"], ["description", "MyText"], ["price", 9.99], ["quantity", 1], ["created_at", "2015-08-25 14:41:51.657739"], ["updated_at", "2015-08-25 14:41:51.657739"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/products/980190963
+Completed 302 Found in 7ms (ActiveRecord: 0.5ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "products"
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------------
+ProductsControllerTest: test_should_show_product
+------------------------------------------------
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mProduct Load (0.1ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", 980190962]]
+  Rendered products/show.html.erb within layouts/application (8.6ms)
+  Rendered layouts/_navigation_links.html.erb (6.8ms)
+  Rendered layouts/_navigation.html.erb (9.2ms)
+Completed 500 Internal Server Error in 6385ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------------
+ProductsControllerTest: test_should_update_product
+--------------------------------------------------
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProductsController#update as HTML
+  Parameters: {"product"=>{"brand_id"=>nil, "category_id"=>nil, "description"=>"MyText", "name"=>"MyString", "price"=>"9.99", "quantity"=>"1"}, "id"=>"980190962"}
+  [1m[35mProduct Load (0.3ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/products/980190962
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------
+ProductsControllerTest: test_should_get_edit
+--------------------------------------------
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mProduct Load (0.0ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", 980190962]]
+  Rendered products/_form.html.erb (30.2ms)
+  Rendered products/edit.html.erb within layouts/application (32.6ms)
+  Rendered layouts/_navigation_links.html.erb (2.6ms)
+  Rendered layouts/_navigation.html.erb (3.0ms)
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-------------------------------------------
+ProductsControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProductsController#new as HTML
+  Rendered products/_form.html.erb (3.2ms)
+  Rendered products/new.html.erb within layouts/application (3.9ms)
+  Rendered layouts/_navigation_links.html.erb (2.6ms)
+  Rendered layouts/_navigation.html.erb (3.1ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+---------------------------------------------
+ProductsControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[35mProduct Load (0.1ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (3.9ms)
+  Rendered layouts/_navigation_links.html.erb (2.8ms)
+  Rendered layouts/_navigation.html.erb (3.1ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+ProductsControllerTest: test_should_destroy_product
+---------------------------------------------------
+  [1m[35mProduct Load (0.1ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products"[0m
+Processing by ProductsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mProduct Load (0.1ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "products" WHERE "products"."id" = ?  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/products
+Completed 302 Found in 2ms (ActiveRecord: 0.5ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "products"
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------
+CategoriesControllerTest: test_should_get_new
+---------------------------------------------
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by CategoriesController#new as HTML
+  Rendered categories/_form.html.erb (2.1ms)
+  Rendered categories/new.html.erb within layouts/application (3.8ms)
+  Rendered layouts/_navigation_links.html.erb (3.1ms)
+  Rendered layouts/_navigation.html.erb (3.5ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+CategoriesControllerTest: test_should_destroy_category
+------------------------------------------------------
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "categories"[0m
+Processing by CategoriesController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mCategory Load (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "categories" WHERE "categories"."id" = ?  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/categories
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "categories"
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------
+CategoriesControllerTest: test_should_get_edit
+----------------------------------------------
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by CategoriesController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mCategory Load (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 980190962]]
+  Rendered categories/_form.html.erb (1.2ms)
+  Rendered categories/edit.html.erb within layouts/application (2.0ms)
+  Rendered layouts/_navigation_links.html.erb (2.8ms)
+  Rendered layouts/_navigation.html.erb (3.0ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------------
+CategoriesControllerTest: test_should_create_category
+-----------------------------------------------------
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "categories"
+Processing by CategoriesController#create as HTML
+  Parameters: {"category"=>{"name"=>"MyString"}}
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "MyString"], ["created_at", "2015-08-25 14:41:58.182020"], ["updated_at", "2015-08-25 14:41:58.182020"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/categories/980190963
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "categories"
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------------
+CategoriesControllerTest: test_should_get_index
+-----------------------------------------------
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered categories/index.html.erb within layouts/application (1.9ms)
+  Rendered layouts/_navigation_links.html.erb (4.2ms)
+  Rendered layouts/_navigation.html.erb (4.5ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------------
+CategoriesControllerTest: test_should_show_category
+---------------------------------------------------
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mCategory Load (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 980190962]]
+  Rendered categories/show.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_navigation_links.html.erb (2.6ms)
+  Rendered layouts/_navigation.html.erb (2.8ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------------
+CategoriesControllerTest: test_should_update_category
+-----------------------------------------------------
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by CategoriesController#update as HTML
+  Parameters: {"category"=>{"name"=>"MyString"}, "id"=>"980190962"}
+  [1m[35mCategory Load (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/categories/980190962
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------------
+BrandsControllerTest: test_should_destroy_brand
+-----------------------------------------------
+  [1m[36mBrand Load (0.2ms)[0m  [1mSELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "brands"
+Processing by BrandsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mBrand Load (0.0ms)[0m  [1mSELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "brands" WHERE "brands"."id" = ?[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/brands
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "brands"[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+--------------------------------------------
+BrandsControllerTest: test_should_show_brand
+--------------------------------------------
+  [1m[35mBrand Load (0.1ms)[0m  SELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by BrandsController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mBrand Load (0.0ms)[0m  [1mSELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  Rendered brands/show.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_navigation_links.html.erb (2.3ms)
+  Rendered layouts/_navigation.html.erb (2.5ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+BrandsControllerTest: test_should_create_brand
+----------------------------------------------
+  [1m[35mBrand Load (0.1ms)[0m  SELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "brands"[0m
+Processing by BrandsController#create as HTML
+  Parameters: {"brand"=>{"name"=>"MyString"}}
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "MyString"], ["created_at", "2015-08-25 14:41:58.237907"], ["updated_at", "2015-08-25 14:41:58.237907"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/brands/980190963
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "brands"[0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+BrandsControllerTest: test_should_get_edit
+------------------------------------------
+  [1m[35mBrand Load (0.1ms)[0m  SELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by BrandsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mBrand Load (0.1ms)[0m  [1mSELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  Rendered brands/_form.html.erb (1.6ms)
+  Rendered brands/edit.html.erb within layouts/application (3.5ms)
+  Rendered layouts/_navigation_links.html.erb (2.2ms)
+  Rendered layouts/_navigation.html.erb (2.4ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------
+BrandsControllerTest: test_should_get_new
+-----------------------------------------
+  [1m[35mBrand Load (0.1ms)[0m  SELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by BrandsController#new as HTML
+  Rendered brands/_form.html.erb (0.9ms)
+  Rendered brands/new.html.erb within layouts/application (1.4ms)
+  Rendered layouts/_navigation_links.html.erb (2.0ms)
+  Rendered layouts/_navigation.html.erb (2.1ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-------------------------------------------
+BrandsControllerTest: test_should_get_index
+-------------------------------------------
+  [1m[36mBrand Load (0.1ms)[0m  [1mSELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by BrandsController#index as HTML
+  [1m[35mBrand Load (0.1ms)[0m  SELECT "brands".* FROM "brands"
+  Rendered brands/index.html.erb within layouts/application (1.4ms)
+  Rendered layouts/_navigation_links.html.erb (2.0ms)
+  Rendered layouts/_navigation.html.erb (2.2ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------
+BrandsControllerTest: test_should_update_brand
+----------------------------------------------
+  [1m[36mBrand Load (0.1ms)[0m  [1mSELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by BrandsController#update as HTML
+  Parameters: {"brand"=>{"name"=>"MyString"}, "id"=>"980190962"}
+  [1m[35mBrand Load (0.0ms)[0m  SELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/brands/980190962
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "brands"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:43:13', '2015-08-25 14:43:13', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:43:13', '2015-08-25 14:43:13', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "categories"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:43:14', '2015-08-25 14:43:14', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-25 14:43:14', '2015-08-25 14:43:14', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "products"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('MyString', NULL, NULL, 'MyText', 9.99, 1, '2015-08-25 14:43:14', '2015-08-25 14:43:14', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('MyString', NULL, NULL, 'MyText', 9.99, 1, '2015-08-25 14:43:14', '2015-08-25 14:43:14', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('noneed@toknow.com', '2015-08-25 14:43:14', '2015-08-25 14:43:14', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('stillnoneed@toknow.com', '2015-08-25 14:43:14', '2015-08-25 14:43:14', 298486374)
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------
+BrandsControllerTest: test_should_create_brand
+----------------------------------------------
+  [1m[36mBrand Load (0.2ms)[0m  [1mSELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "brands"
+Processing by BrandsController#create as HTML
+  Parameters: {"brand"=>{"name"=>"MyString"}}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "MyString"], ["created_at", "2015-08-25 14:43:14.026423"], ["updated_at", "2015-08-25 14:43:14.026423"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/brands/980190963
+Completed 302 Found in 5ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "brands"
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------
+BrandsControllerTest: test_should_get_new
+-----------------------------------------
+  [1m[36mBrand Load (0.1ms)[0m  [1mSELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by BrandsController#new as HTML
+  Rendered brands/_form.html.erb (13.5ms)
+  Rendered brands/new.html.erb within layouts/application (17.4ms)
+  Rendered layouts/_navigation_links.html.erb (10.5ms)
+  Rendered layouts/_navigation.html.erb (13.1ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+Completed 200 OK in 185ms (Views: 184.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+--------------------------------------------
+BrandsControllerTest: test_should_show_brand
+--------------------------------------------
+  [1m[35mBrand Load (0.1ms)[0m  SELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by BrandsController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mBrand Load (0.1ms)[0m  [1mSELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  Rendered brands/show.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.7ms)
+  Rendered layouts/_navigation.html.erb (1.1ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 10ms (Views: 6.3ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------
+BrandsControllerTest: test_should_destroy_brand
+-----------------------------------------------
+  [1m[35mBrand Load (0.1ms)[0m  SELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "brands"[0m
+Processing by BrandsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mBrand Load (0.1ms)[0m  SELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "brands" WHERE "brands"."id" = ?  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/brands
+Completed 302 Found in 3ms (ActiveRecord: 0.6ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "brands"
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-------------------------------------------
+BrandsControllerTest: test_should_get_index
+-------------------------------------------
+  [1m[36mBrand Load (0.1ms)[0m  [1mSELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by BrandsController#index as HTML
+  [1m[35mBrand Load (0.2ms)[0m  SELECT "brands".* FROM "brands"
+  Rendered brands/index.html.erb within layouts/application (2.6ms)
+  Rendered layouts/_navigation_links.html.erb (0.7ms)
+  Rendered layouts/_navigation.html.erb (1.0ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 10ms (Views: 9.9ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------
+BrandsControllerTest: test_should_update_brand
+----------------------------------------------
+  [1m[36mBrand Load (0.1ms)[0m  [1mSELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by BrandsController#update as HTML
+  Parameters: {"brand"=>{"name"=>"MyString"}, "id"=>"980190962"}
+  [1m[35mBrand Load (0.1ms)[0m  SELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/brands/980190962
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------
+BrandsControllerTest: test_should_get_edit
+------------------------------------------
+  [1m[36mBrand Load (0.2ms)[0m  [1mSELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by BrandsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mBrand Load (0.1ms)[0m  SELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1  [["id", 980190962]]
+  Rendered brands/_form.html.erb (1.9ms)
+  Rendered brands/edit.html.erb within layouts/application (3.1ms)
+  Rendered layouts/_navigation_links.html.erb (0.6ms)
+  Rendered layouts/_navigation.html.erb (1.0ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 9ms (Views: 7.9ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------
+ProductsControllerTest: test_should_get_edit
+--------------------------------------------
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mProduct Load (0.1ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", 980190962]]
+  Rendered products/_form.html.erb (7.4ms)
+  Rendered products/edit.html.erb within layouts/application (8.9ms)
+  Rendered layouts/_navigation_links.html.erb (0.5ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+  Rendered layouts/_messages.html.erb (0.0ms)
+Completed 200 OK in 15ms (Views: 14.0ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+---------------------------------------------------
+ProductsControllerTest: test_should_destroy_product
+---------------------------------------------------
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "products"
+Processing by ProductsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "products" WHERE "products"."id" = ?[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/products
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products"[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------------------------
+ProductsControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[35mProduct Load (0.1ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (9.8ms)
+  Rendered layouts/_navigation_links.html.erb (0.6ms)
+  Rendered layouts/_navigation.html.erb (0.9ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 14ms (Views: 13.3ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------------
+ProductsControllerTest: test_should_show_product
+------------------------------------------------
+  [1m[35mProduct Load (0.2ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  Rendered products/show.html.erb within layouts/application (1.6ms)
+  Rendered layouts/_navigation_links.html.erb (0.7ms)
+  Rendered layouts/_navigation.html.erb (1.1ms)
+  Rendered layouts/_messages.html.erb (0.0ms)
+Completed 200 OK in 7ms (Views: 6.8ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------
+ProductsControllerTest: test_should_create_product
+--------------------------------------------------
+  [1m[35mProduct Load (0.1ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products"[0m
+Processing by ProductsController#create as HTML
+  Parameters: {"product"=>{"brand_id"=>nil, "category_id"=>nil, "description"=>"MyText", "name"=>"MyString", "price"=>"9.99", "quantity"=>"1"}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "products" ("name", "description", "price", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "MyString"], ["description", "MyText"], ["price", 9.99], ["quantity", 1], ["created_at", "2015-08-25 14:43:14.359238"], ["updated_at", "2015-08-25 14:43:14.359238"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/products/980190963
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products"[0m
+  [1m[35m (0.7ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------------
+ProductsControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[35mProduct Load (0.1ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ProductsController#new as HTML
+  Rendered products/_form.html.erb (2.7ms)
+  Rendered products/new.html.erb within layouts/application (3.3ms)
+  Rendered layouts/_navigation_links.html.erb (0.5ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+  Rendered layouts/_messages.html.erb (0.0ms)
+Completed 200 OK in 7ms (Views: 6.5ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------------
+ProductsControllerTest: test_should_update_product
+--------------------------------------------------
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProductsController#update as HTML
+  Parameters: {"product"=>{"brand_id"=>nil, "category_id"=>nil, "description"=>"MyText", "name"=>"MyString", "price"=>"9.99", "quantity"=>"1"}, "id"=>"980190962"}
+  [1m[35mProduct Load (0.0ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/products/980190962
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+---------------------------------------------
+CategoriesControllerTest: test_should_get_new
+---------------------------------------------
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by CategoriesController#new as HTML
+  Rendered categories/_form.html.erb (1.9ms)
+  Rendered categories/new.html.erb within layouts/application (3.2ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (0.6ms)
+  Rendered layouts/_messages.html.erb (0.0ms)
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+CategoriesControllerTest: test_should_destroy_category
+------------------------------------------------------
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "categories"[0m
+Processing by CategoriesController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mCategory Load (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "categories" WHERE "categories"."id" = ?  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/categories
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "categories"
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------------------
+CategoriesControllerTest: test_should_update_category
+-----------------------------------------------------
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by CategoriesController#update as HTML
+  Parameters: {"category"=>{"name"=>"MyString"}, "id"=>"980190962"}
+  [1m[35mCategory Load (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/categories/980190962
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------------
+CategoriesControllerTest: test_should_get_index
+-----------------------------------------------
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered categories/index.html.erb within layouts/application (1.9ms)
+  Rendered layouts/_navigation_links.html.erb (0.5ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 6ms (Views: 5.9ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------
+CategoriesControllerTest: test_should_get_edit
+----------------------------------------------
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by CategoriesController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mCategory Load (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 980190962]]
+  Rendered categories/_form.html.erb (1.1ms)
+  Rendered categories/edit.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_navigation_links.html.erb (0.5ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+  Rendered layouts/_messages.html.erb (0.0ms)
+Completed 200 OK in 5ms (Views: 4.8ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+-----------------------------------------------------
+CategoriesControllerTest: test_should_create_category
+-----------------------------------------------------
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "categories"
+Processing by CategoriesController#create as HTML
+  Parameters: {"category"=>{"name"=>"MyString"}}
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "MyString"], ["created_at", "2015-08-25 14:43:14.427369"], ["updated_at", "2015-08-25 14:43:14.427369"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/categories/980190963
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "categories"
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+---------------------------------------------------
+CategoriesControllerTest: test_should_show_category
+---------------------------------------------------
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mCategory Load (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 980190962]]
+  Rendered categories/show.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (1.0ms)
+  Rendered layouts/_messages.html.erb (0.0ms)
+Completed 200 OK in 5ms (Views: 4.7ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
