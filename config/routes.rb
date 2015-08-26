@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'storefont/index'
+
   resources :products
   resources :brands
   resources :categories
