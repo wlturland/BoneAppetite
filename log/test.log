@@ -1307,3 +1307,1760 @@ Redirected to http://test.host/categories/980190963
 Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
   [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "categories"[0m
   [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "brands"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-26 13:43:29', '2015-08-26 13:43:29', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-26 13:43:29', '2015-08-26 13:43:29', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "categories"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-26 13:43:29', '2015-08-26 13:43:29', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-26 13:43:29', '2015-08-26 13:43:29', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "products"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('MyString', NULL, NULL, 'MyText', 9.99, 1, '2015-08-26 13:43:29', '2015-08-26 13:43:29', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('MyString', NULL, NULL, 'MyText', 9.99, 1, '2015-08-26 13:43:29', '2015-08-26 13:43:29', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('noneed@toknow.com', '2015-08-26 13:43:29', '2015-08-26 13:43:29', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('stillnoneed@toknow.com', '2015-08-26 13:43:29', '2015-08-26 13:43:29', 298486374)
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------
+BrandsControllerTest: test_should_get_index
+-------------------------------------------
+  [1m[36mBrand Load (0.3ms)[0m  [1mSELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by BrandsController#index as HTML
+  [1m[35mBrand Load (0.1ms)[0m  SELECT "brands".* FROM "brands"
+  Rendered brands/index.html.erb within layouts/application (3.6ms)
+  Rendered layouts/_navigation_links.html.erb (10.0ms)
+  Rendered layouts/_navigation.html.erb (12.6ms)
+  Rendered layouts/_messages.html.erb (0.9ms)
+Completed 200 OK in 214ms (Views: 212.9ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------
+BrandsControllerTest: test_should_show_brand
+--------------------------------------------
+  [1m[36mBrand Load (0.1ms)[0m  [1mSELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by BrandsController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mBrand Load (0.1ms)[0m  SELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1  [["id", 980190962]]
+  Rendered brands/show.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_navigation_links.html.erb (0.7ms)
+  Rendered layouts/_navigation.html.erb (1.1ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 10ms (Views: 6.7ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------
+BrandsControllerTest: test_should_get_new
+-----------------------------------------
+  [1m[36mBrand Load (0.1ms)[0m  [1mSELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by BrandsController#new as HTML
+  Rendered brands/_form.html.erb (31.6ms)
+  Rendered brands/new.html.erb within layouts/application (34.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.5ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 39ms (Views: 38.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+BrandsControllerTest: test_should_update_brand
+----------------------------------------------
+  [1m[35mBrand Load (0.1ms)[0m  SELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by BrandsController#update as HTML
+  Parameters: {"brand"=>{"name"=>"MyString"}, "id"=>"980190962"}
+  [1m[36mBrand Load (0.1ms)[0m  [1mSELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/brands/980190962
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------
+BrandsControllerTest: test_should_destroy_brand
+-----------------------------------------------
+  [1m[35mBrand Load (0.1ms)[0m  SELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "brands"[0m
+Processing by BrandsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mBrand Load (0.0ms)[0m  SELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "brands" WHERE "brands"."id" = ?  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/brands
+Completed 302 Found in 1ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "brands"
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------
+BrandsControllerTest: test_should_get_edit
+------------------------------------------
+  [1m[36mBrand Load (0.1ms)[0m  [1mSELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by BrandsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mBrand Load (0.1ms)[0m  SELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1  [["id", 980190962]]
+  Rendered brands/_form.html.erb (1.1ms)
+  Rendered brands/edit.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_navigation_links.html.erb (0.5ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 5ms (Views: 4.7ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------
+BrandsControllerTest: test_should_create_brand
+----------------------------------------------
+  [1m[36mBrand Load (0.2ms)[0m  [1mSELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "brands"
+Processing by BrandsController#create as HTML
+  Parameters: {"brand"=>{"name"=>"MyString"}}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "MyString"], ["created_at", "2015-08-26 13:43:29.813823"], ["updated_at", "2015-08-26 13:43:29.813823"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/brands/980190963
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "brands"
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+---------------------------------------------
+CategoriesControllerTest: test_should_get_new
+---------------------------------------------
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by CategoriesController#new as HTML
+  Rendered categories/_form.html.erb (1.7ms)
+  Rendered categories/new.html.erb within layouts/application (3.2ms)
+  Rendered layouts/_navigation_links.html.erb (0.5ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+  Rendered layouts/_messages.html.erb (0.0ms)
+Completed 200 OK in 8ms (Views: 8.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+CategoriesControllerTest: test_should_show_category
+---------------------------------------------------
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mCategory Load (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  Rendered categories/show.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (0.5ms)
+  Rendered layouts/_messages.html.erb (0.0ms)
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------
+CategoriesControllerTest: test_should_create_category
+-----------------------------------------------------
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "categories"[0m
+Processing by CategoriesController#create as HTML
+  Parameters: {"category"=>{"name"=>"MyString"}}
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "MyString"], ["created_at", "2015-08-26 13:43:29.844473"], ["updated_at", "2015-08-26 13:43:29.844473"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/categories/980190963
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "categories"[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------
+CategoriesControllerTest: test_should_update_category
+-----------------------------------------------------
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by CategoriesController#update as HTML
+  Parameters: {"category"=>{"name"=>"MyString"}, "id"=>"980190962"}
+  [1m[36mCategory Load (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/categories/980190962
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+CategoriesControllerTest: test_should_get_edit
+----------------------------------------------
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by CategoriesController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mCategory Load (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  Rendered categories/_form.html.erb (1.4ms)
+  Rendered categories/edit.html.erb within layouts/application (2.8ms)
+  Rendered layouts/_navigation_links.html.erb (0.6ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+  Rendered layouts/_messages.html.erb (0.0ms)
+Completed 200 OK in 8ms (Views: 6.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+CategoriesControllerTest: test_should_destroy_category
+------------------------------------------------------
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "categories"[0m
+Processing by CategoriesController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mCategory Load (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "categories" WHERE "categories"."id" = ?  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/categories
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "categories"
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------------
+CategoriesControllerTest: test_should_get_index
+-----------------------------------------------
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered categories/index.html.erb within layouts/application (2.4ms)
+  Rendered layouts/_navigation_links.html.erb (1.4ms)
+  Rendered layouts/_navigation.html.erb (1.7ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 8ms (Views: 8.0ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------------
+ProductsControllerTest: test_should_show_product
+------------------------------------------------
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mProduct Load (0.1ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", 980190962]]
+  Rendered products/show.html.erb within layouts/application (16.4ms)
+  Rendered layouts/_navigation_links.html.erb (1.1ms)
+  Rendered layouts/_navigation.html.erb (1.5ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 25ms (Views: 23.5ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+---------------------------------------------------
+ProductsControllerTest: test_should_destroy_product
+---------------------------------------------------
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "products"
+Processing by ProductsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "products" WHERE "products"."id" = ?[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/products
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products"[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+--------------------------------------------
+ProductsControllerTest: test_should_get_edit
+--------------------------------------------
+  [1m[35mProduct Load (0.1ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories"  ORDER BY "categories"."name" ASC
+  [1m[36mBrand Load (0.1ms)[0m  [1mSELECT "brands".* FROM "brands"  ORDER BY "brands"."name" ASC[0m
+  Rendered products/_form.html.erb (15.4ms)
+  Rendered products/edit.html.erb within layouts/application (18.0ms)
+  Rendered layouts/_navigation_links.html.erb (1.0ms)
+  Rendered layouts/_navigation.html.erb (1.3ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 24ms (Views: 23.1ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------------------------
+ProductsControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[35mProduct Load (0.1ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (4.8ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (1.0ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 9ms (Views: 8.3ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------
+ProductsControllerTest: test_should_update_product
+--------------------------------------------------
+  [1m[35mProduct Load (0.1ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ProductsController#update as HTML
+  Parameters: {"product"=>{"brand_id"=>nil, "category_id"=>nil, "description"=>"MyText", "name"=>"MyString", "price"=>"9.99", "quantity"=>"1"}, "id"=>"980190962"}
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.7ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/products/980190962
+Completed 302 Found in 3ms (ActiveRecord: 0.8ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------
+ProductsControllerTest: test_should_create_product
+--------------------------------------------------
+  [1m[35mProduct Load (0.1ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products"[0m
+Processing by ProductsController#create as HTML
+  Parameters: {"product"=>{"brand_id"=>nil, "category_id"=>nil, "description"=>"MyText", "name"=>"MyString", "price"=>"9.99", "quantity"=>"1"}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "products" ("name", "description", "price", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "MyString"], ["description", "MyText"], ["price", 9.99], ["quantity", 1], ["created_at", "2015-08-26 13:43:29.993136"], ["updated_at", "2015-08-26 13:43:29.993136"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/products/980190963
+Completed 302 Found in 4ms (ActiveRecord: 0.5ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products"[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------------
+ProductsControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[35mProduct Load (0.1ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ProductsController#new as HTML
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories"  ORDER BY "categories"."name" ASC[0m
+  [1m[35mBrand Load (0.1ms)[0m  SELECT "brands".* FROM "brands"  ORDER BY "brands"."name" ASC
+  Rendered products/_form.html.erb (8.8ms)
+  Rendered products/new.html.erb within layouts/application (9.4ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (0.5ms)
+  Rendered layouts/_messages.html.erb (0.0ms)
+Completed 200 OK in 12ms (Views: 12.1ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "brands"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('Purina', '2015-08-26 13:56:04', '2015-08-26 13:56:04', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('Iams', '2015-08-26 13:56:04', '2015-08-26 13:56:04', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "categories"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('Toys', '2015-08-26 13:56:04', '2015-08-26 13:56:04', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('Food', '2015-08-26 13:56:04', '2015-08-26 13:56:04', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "products"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('Dog Chow', 2, 1, 'MyText', 9.99, 1, '2015-08-26 13:56:04', '2015-08-26 13:56:04', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('Squeaky Toy', 1, 2, 'MyText', 9.99, 1, '2015-08-26 13:56:04', '2015-08-26 13:56:04', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('noneed@toknow.com', '2015-08-26 13:56:04', '2015-08-26 13:56:04', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('stillnoneed@toknow.com', '2015-08-26 13:56:04', '2015-08-26 13:56:04', 298486374)
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------
+BrandTest: test_brand_fields_must_not_be_empty
+----------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "brands"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('Purina', '2015-08-26 14:00:18', '2015-08-26 14:00:18', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('Iams', '2015-08-26 14:00:18', '2015-08-26 14:00:18', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "categories"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('Toys', '2015-08-26 14:00:18', '2015-08-26 14:00:18', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('Food', '2015-08-26 14:00:18', '2015-08-26 14:00:18', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "products"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('Dog Chow', 2, 1, 'MyText', 9.99, 1, '2015-08-26 14:00:18', '2015-08-26 14:00:18', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('Squeaky Toy', 1, 2, 'MyText', 9.99, 1, '2015-08-26 14:00:18', '2015-08-26 14:00:18', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('noneed@toknow.com', '2015-08-26 14:00:18', '2015-08-26 14:00:18', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('stillnoneed@toknow.com', '2015-08-26 14:00:18', '2015-08-26 14:00:18', 298486374)
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------
+BrandTest: test_brand_fields_must_not_be_empty
+----------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "brands"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('Purina', '2015-08-26 14:01:26', '2015-08-26 14:01:26', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('Iams', '2015-08-26 14:01:26', '2015-08-26 14:01:26', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "categories"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('Toys', '2015-08-26 14:01:26', '2015-08-26 14:01:26', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('Food', '2015-08-26 14:01:26', '2015-08-26 14:01:26', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "products"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('Dog Chow', 2, 1, 'MyText', 9.99, 1, '2015-08-26 14:01:26', '2015-08-26 14:01:26', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('Squeaky Toy', 1, 2, 'MyText', 9.99, 1, '2015-08-26 14:01:26', '2015-08-26 14:01:26', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('noneed@toknow.com', '2015-08-26 14:01:26', '2015-08-26 14:01:26', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('stillnoneed@toknow.com', '2015-08-26 14:01:26', '2015-08-26 14:01:26', 298486374)
+  [1m[36m (2.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------
+BrandTest: test_brand_fields_must_not_be_empty
+----------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "brands"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('Purina', '2015-08-26 14:02:02', '2015-08-26 14:02:02', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('Iams', '2015-08-26 14:02:02', '2015-08-26 14:02:02', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "categories"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('Toys', '2015-08-26 14:02:02', '2015-08-26 14:02:02', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('Food', '2015-08-26 14:02:02', '2015-08-26 14:02:02', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "products"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('Dog Chow', 2, 1, 'MyText', 9.99, 1, '2015-08-26 14:02:02', '2015-08-26 14:02:02', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('Squeaky Toy', 1, 2, 'MyText', 9.99, 1, '2015-08-26 14:02:02', '2015-08-26 14:02:02', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('noneed@toknow.com', '2015-08-26 14:02:02', '2015-08-26 14:02:02', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('stillnoneed@toknow.com', '2015-08-26 14:02:02', '2015-08-26 14:02:02', 298486374)
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------
+BrandTest: test_brand_fields_must_not_be_empty
+----------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "brands"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('Purina', '2015-08-26 14:02:52', '2015-08-26 14:02:52', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('Iams', '2015-08-26 14:02:52', '2015-08-26 14:02:52', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "categories"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('Toys', '2015-08-26 14:02:52', '2015-08-26 14:02:52', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('Food', '2015-08-26 14:02:52', '2015-08-26 14:02:52', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "products"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('Dog Chow', 2, 1, 'MyText', 9.99, 1, '2015-08-26 14:02:52', '2015-08-26 14:02:52', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('Squeaky Toy', 1, 2, 'MyText', 9.99, 1, '2015-08-26 14:02:52', '2015-08-26 14:02:52', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('noneed@toknow.com', '2015-08-26 14:02:52', '2015-08-26 14:02:52', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('stillnoneed@toknow.com', '2015-08-26 14:02:52', '2015-08-26 14:02:52', 298486374)
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------
+BrandTest: test_brand_fields_must_not_be_empty
+----------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "brands"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('Purina', '2015-08-26 14:06:44', '2015-08-26 14:06:44', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('Iams', '2015-08-26 14:06:44', '2015-08-26 14:06:44', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "categories"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('Toys', '2015-08-26 14:06:44', '2015-08-26 14:06:44', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('Food', '2015-08-26 14:06:44', '2015-08-26 14:06:44', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "products"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('Dog Chow', 2, 1, 'MyText', 9.99, 1, '2015-08-26 14:06:44', '2015-08-26 14:06:44', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('Squeaky Toy', 1, 2, 'MyText', 9.99, 1, '2015-08-26 14:06:44', '2015-08-26 14:06:44', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('noneed@toknow.com', '2015-08-26 14:06:44', '2015-08-26 14:06:44', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('stillnoneed@toknow.com', '2015-08-26 14:06:44', '2015-08-26 14:06:44', 298486374)
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------
+BrandTest: test_brand_fields_must_not_be_empty
+----------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------
+BrandTest: test_brand_name_must_be_unique
+-----------------------------------------
+  [1m[36mBrand Load (0.3ms)[0m  [1mSELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Purina"], ["created_at", "2015-08-26 14:06:44.471919"], ["updated_at", "2015-08-26 14:06:44.471919"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "brands"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('Purina', '2015-08-26 14:07:27', '2015-08-26 14:07:27', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('Iams', '2015-08-26 14:07:27', '2015-08-26 14:07:27', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "categories"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('Toys', '2015-08-26 14:07:27', '2015-08-26 14:07:27', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('Food', '2015-08-26 14:07:27', '2015-08-26 14:07:27', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "products"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('Dog Chow', 2, 1, 'MyText', 9.99, 1, '2015-08-26 14:07:27', '2015-08-26 14:07:27', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('Squeaky Toy', 1, 2, 'MyText', 9.99, 1, '2015-08-26 14:07:27', '2015-08-26 14:07:27', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('noneed@toknow.com', '2015-08-26 14:07:27', '2015-08-26 14:07:27', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('stillnoneed@toknow.com', '2015-08-26 14:07:27', '2015-08-26 14:07:27', 298486374)
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------
+BrandTest: test_brand_fields_must_not_be_empty
+----------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBrand Exists (0.2ms)[0m  SELECT  1 AS one FROM "brands" WHERE "brands"."name" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------
+BrandTest: test_brand_name_must_be_unique
+-----------------------------------------
+  [1m[35mBrand Load (0.2ms)[0m  SELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBrand Exists (0.1ms)[0m  SELECT  1 AS one FROM "brands" WHERE "brands"."name" = 'Purina' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "brands"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('Purina', '2015-08-26 14:11:34', '2015-08-26 14:11:34', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('Iams', '2015-08-26 14:11:34', '2015-08-26 14:11:34', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "categories"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('Toys', '2015-08-26 14:11:34', '2015-08-26 14:11:34', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('Food', '2015-08-26 14:11:34', '2015-08-26 14:11:34', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "products"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('Dog Chow', 2, 1, 'MyText', 9.99, 1, '2015-08-26 14:11:34', '2015-08-26 14:11:34', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('Squeaky Toy', 1, 2, 'MyText', 9.99, 1, '2015-08-26 14:11:34', '2015-08-26 14:11:34', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('noneed@toknow.com', '2015-08-26 14:11:34', '2015-08-26 14:11:34', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('stillnoneed@toknow.com', '2015-08-26 14:11:34', '2015-08-26 14:11:34', 298486374)
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------
+BrandTest: test_brand_fields_must_not_be_empty
+----------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBrand Exists (0.1ms)[0m  SELECT  1 AS one FROM "brands" WHERE "brands"."name" IS NULL LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------
+BrandTest: test_brand_saves_with_all_valid_fields
+-------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mBrand Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "brands" WHERE "brands"."name" = 'unique_brand' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "unique_brand"], ["created_at", "2015-08-26 14:11:34.156015"], ["updated_at", "2015-08-26 14:11:34.156015"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------
+BrandTest: test_brand_name_must_be_unique
+-----------------------------------------
+  [1m[35mBrand Load (0.1ms)[0m  SELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBrand Exists (0.1ms)[0m  SELECT  1 AS one FROM "brands" WHERE "brands"."name" = 'Purina' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------
+CategoryTest: test_Category_fields_must_not_be_empty
+----------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "categories" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2015-08-26 14:11:34.167587"], ["updated_at", "2015-08-26 14:11:34.167587"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+-----------------------------------------------
+CategoryTest: test_Category_name_must_be_unique
+-----------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "brands"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('Purina', '2015-08-26 14:12:30', '2015-08-26 14:12:30', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('Iams', '2015-08-26 14:12:30', '2015-08-26 14:12:30', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "categories"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('Toys', '2015-08-26 14:12:30', '2015-08-26 14:12:30', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('Food', '2015-08-26 14:12:30', '2015-08-26 14:12:30', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "products"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('Dog Chow', 2, 1, 'MyText', 9.99, 1, '2015-08-26 14:12:30', '2015-08-26 14:12:30', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('Squeaky Toy', 1, 2, 'MyText', 9.99, 1, '2015-08-26 14:12:30', '2015-08-26 14:12:30', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('noneed@toknow.com', '2015-08-26 14:12:30', '2015-08-26 14:12:30', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('stillnoneed@toknow.com', '2015-08-26 14:12:30', '2015-08-26 14:12:30', 298486374)
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------------
+CategoryTest: test_Category_name_must_be_unique
+-----------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+----------------------------------------------------
+CategoryTest: test_Category_fields_must_not_be_empty
+----------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "categories" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2015-08-26 14:12:30.464162"], ["updated_at", "2015-08-26 14:12:30.464162"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+BrandTest: test_brand_fields_must_not_be_empty
+----------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mBrand Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "brands" WHERE "brands"."name" IS NULL LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------
+BrandTest: test_brand_name_must_be_unique
+-----------------------------------------
+  [1m[36mBrand Load (0.2ms)[0m  [1mSELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mBrand Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "brands" WHERE "brands"."name" = 'Purina' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  begin transaction
+-------------------------------------------------
+BrandTest: test_brand_saves_with_all_valid_fields
+-------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBrand Exists (0.1ms)[0m  SELECT  1 AS one FROM "brands" WHERE "brands"."name" = 'unique_brand' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "unique_brand"], ["created_at", "2015-08-26 14:12:30.506332"], ["updated_at", "2015-08-26 14:12:30.506332"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "brands"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('Purina', '2015-08-26 14:13:04', '2015-08-26 14:13:04', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('Iams', '2015-08-26 14:13:04', '2015-08-26 14:13:04', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "categories"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('Toys', '2015-08-26 14:13:04', '2015-08-26 14:13:04', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('Food', '2015-08-26 14:13:04', '2015-08-26 14:13:04', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "products"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('Dog Chow', 2, 1, 'MyText', 9.99, 1, '2015-08-26 14:13:04', '2015-08-26 14:13:04', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('Squeaky Toy', 1, 2, 'MyText', 9.99, 1, '2015-08-26 14:13:04', '2015-08-26 14:13:04', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('noneed@toknow.com', '2015-08-26 14:13:04', '2015-08-26 14:13:04', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('stillnoneed@toknow.com', '2015-08-26 14:13:04', '2015-08-26 14:13:04', 298486374)
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------------
+CategoryTest: test_Category_fields_must_not_be_empty
+----------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "categories" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2015-08-26 14:13:04.871881"], ["updated_at", "2015-08-26 14:13:04.871881"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------
+CategoryTest: test_Category_name_must_be_unique
+-----------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+BrandTest: test_brand_fields_must_not_be_empty
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mBrand Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "brands" WHERE "brands"."name" IS NULL LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------
+BrandTest: test_brand_name_must_be_unique
+-----------------------------------------
+  [1m[36mBrand Load (0.1ms)[0m  [1mSELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mBrand Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "brands" WHERE "brands"."name" = 'Purina' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-------------------------------------------------
+BrandTest: test_brand_saves_with_all_valid_fields
+-------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBrand Exists (0.1ms)[0m  SELECT  1 AS one FROM "brands" WHERE "brands"."name" = 'unique_brand' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "unique_brand"], ["created_at", "2015-08-26 14:13:04.913751"], ["updated_at", "2015-08-26 14:13:04.913751"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "brands"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('Purina', '2015-08-26 14:13:49', '2015-08-26 14:13:49', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('Iams', '2015-08-26 14:13:49', '2015-08-26 14:13:49', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "categories"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('Toys', '2015-08-26 14:13:49', '2015-08-26 14:13:49', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('Food', '2015-08-26 14:13:49', '2015-08-26 14:13:49', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "products"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('Dog Chow', 2, 1, 'MyText', 9.99, 1, '2015-08-26 14:13:49', '2015-08-26 14:13:49', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('Squeaky Toy', 1, 2, 'MyText', 9.99, 1, '2015-08-26 14:13:49', '2015-08-26 14:13:49', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('noneed@toknow.com', '2015-08-26 14:13:49', '2015-08-26 14:13:49', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('stillnoneed@toknow.com', '2015-08-26 14:13:49', '2015-08-26 14:13:49', 298486374)
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------------
+CategoryTest: test_Category_name_must_be_unique
+-----------------------------------------------
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Toys"], ["created_at", "2015-08-26 14:13:49.766770"], ["updated_at", "2015-08-26 14:13:49.766770"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------------
+CategoryTest: test_Category_fields_must_not_be_empty
+----------------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "categories" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2015-08-26 14:13:49.769931"], ["updated_at", "2015-08-26 14:13:49.769931"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------
+BrandTest: test_brand_saves_with_all_valid_fields
+-------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mBrand Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "brands" WHERE "brands"."name" = 'unique_brand' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "unique_brand"], ["created_at", "2015-08-26 14:13:49.785972"], ["updated_at", "2015-08-26 14:13:49.785972"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------
+BrandTest: test_brand_name_must_be_unique
+-----------------------------------------
+  [1m[35mBrand Load (0.2ms)[0m  SELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBrand Exists (0.1ms)[0m  SELECT  1 AS one FROM "brands" WHERE "brands"."name" = 'Purina' LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+BrandTest: test_brand_fields_must_not_be_empty
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mBrand Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "brands" WHERE "brands"."name" IS NULL LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "brands"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('Purina', '2015-08-26 14:15:16', '2015-08-26 14:15:16', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('Iams', '2015-08-26 14:15:16', '2015-08-26 14:15:16', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "categories"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('Toys', '2015-08-26 14:15:16', '2015-08-26 14:15:16', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('Food', '2015-08-26 14:15:16', '2015-08-26 14:15:16', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "products"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('Dog Chow', 2, 1, 'MyText', 9.99, 1, '2015-08-26 14:15:16', '2015-08-26 14:15:16', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('Squeaky Toy', 1, 2, 'MyText', 9.99, 1, '2015-08-26 14:15:16', '2015-08-26 14:15:16', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('noneed@toknow.com', '2015-08-26 14:15:16', '2015-08-26 14:15:16', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('stillnoneed@toknow.com', '2015-08-26 14:15:16', '2015-08-26 14:15:16', 298486374)
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------
+BrandTest: test_brand_saves_with_all_valid_fields
+-------------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBrand Exists (0.2ms)[0m  SELECT  1 AS one FROM "brands" WHERE "brands"."name" = 'unique_brand' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "unique_brand"], ["created_at", "2015-08-26 14:15:16.324454"], ["updated_at", "2015-08-26 14:15:16.324454"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------
+BrandTest: test_brand_fields_must_not_be_empty
+----------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBrand Exists (0.2ms)[0m  SELECT  1 AS one FROM "brands" WHERE "brands"."name" IS NULL LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------
+BrandTest: test_brand_name_must_be_unique
+-----------------------------------------
+  [1m[35mBrand Load (0.2ms)[0m  SELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBrand Exists (0.1ms)[0m  SELECT  1 AS one FROM "brands" WHERE "brands"."name" = 'Purina' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------
+CategoryTest: test_Category_saves_with_all_valid_fields
+-------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "unique_category"], ["created_at", "2015-08-26 14:15:16.359552"], ["updated_at", "2015-08-26 14:15:16.359552"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------------
+CategoryTest: test_Category_name_must_be_unique
+-----------------------------------------------
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Toys"], ["created_at", "2015-08-26 14:15:16.363062"], ["updated_at", "2015-08-26 14:15:16.363062"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------------
+CategoryTest: test_Category_fields_must_not_be_empty
+----------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "categories" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2015-08-26 14:15:16.366011"], ["updated_at", "2015-08-26 14:15:16.366011"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "brands"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('Purina', '2015-08-26 14:16:11', '2015-08-26 14:16:11', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('Iams', '2015-08-26 14:16:11', '2015-08-26 14:16:11', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "categories"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('Toys', '2015-08-26 14:16:11', '2015-08-26 14:16:11', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('Food', '2015-08-26 14:16:11', '2015-08-26 14:16:11', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "products"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('Dog Chow', 2, 1, 'MyText', 9.99, 1, '2015-08-26 14:16:11', '2015-08-26 14:16:11', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('Squeaky Toy', 1, 2, 'MyText', 9.99, 1, '2015-08-26 14:16:11', '2015-08-26 14:16:11', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('noneed@toknow.com', '2015-08-26 14:16:11', '2015-08-26 14:16:11', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('stillnoneed@toknow.com', '2015-08-26 14:16:11', '2015-08-26 14:16:11', 298486374)
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------------
+CategoryTest: test_Category_saves_with_all_valid_fields
+-------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" = 'unique_category' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "unique_category"], ["created_at", "2015-08-26 14:16:11.234971"], ["updated_at", "2015-08-26 14:16:11.234971"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------------
+CategoryTest: test_Category_name_must_be_unique
+-----------------------------------------------
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCategory Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."name" = 'Toys' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------------
+CategoryTest: test_Category_fields_must_not_be_empty
+----------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------
+BrandTest: test_brand_saves_with_all_valid_fields
+-------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mBrand Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "brands" WHERE "brands"."name" = 'unique_brand' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "unique_brand"], ["created_at", "2015-08-26 14:16:11.270899"], ["updated_at", "2015-08-26 14:16:11.270899"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------
+BrandTest: test_brand_name_must_be_unique
+-----------------------------------------
+  [1m[35mBrand Load (0.2ms)[0m  SELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBrand Exists (0.1ms)[0m  SELECT  1 AS one FROM "brands" WHERE "brands"."name" = 'Purina' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+BrandTest: test_brand_fields_must_not_be_empty
+----------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mBrand Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "brands" WHERE "brands"."name" IS NULL LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "brands"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('Purina', '2015-08-26 14:24:04', '2015-08-26 14:24:04', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('Iams', '2015-08-26 14:24:04', '2015-08-26 14:24:04', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "categories"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('Toys', '2015-08-26 14:24:04', '2015-08-26 14:24:04', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('Food', '2015-08-26 14:24:04', '2015-08-26 14:24:04', 298486374)
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "products"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('Dog Chow', 2, 1, 'MyText', 9.99, 1, '2015-08-26 14:24:04', '2015-08-26 14:24:04', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('Squeaky Toy', 1, 2, 'MyText', 9.99, 1, '2015-08-26 14:24:04', '2015-08-26 14:24:04', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('noneed@toknow.com', '2015-08-26 14:24:04', '2015-08-26 14:24:04', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('stillnoneed@toknow.com', '2015-08-26 14:24:04', '2015-08-26 14:24:04', 298486374)
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------
+CategoryTest: test_Category_name_must_be_unique
+-----------------------------------------------
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCategory Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."name" = 'Toys' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------------
+CategoryTest: test_Category_fields_must_not_be_empty
+----------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCategory Exists (0.1ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------
+CategoryTest: test_Category_saves_with_all_valid_fields
+-------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCategory Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."name" = 'unique_category' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "unique_category"], ["created_at", "2015-08-26 14:24:04.741731"], ["updated_at", "2015-08-26 14:24:04.741731"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------
+BrandTest: test_brand_name_must_be_unique
+-----------------------------------------
+  [1m[35mBrand Load (0.2ms)[0m  SELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBrand Exists (0.1ms)[0m  SELECT  1 AS one FROM "brands" WHERE "brands"."name" = 'Purina' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+BrandTest: test_brand_fields_must_not_be_empty
+----------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mBrand Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "brands" WHERE "brands"."name" IS NULL LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-------------------------------------------------
+BrandTest: test_brand_saves_with_all_valid_fields
+-------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBrand Exists (0.1ms)[0m  SELECT  1 AS one FROM "brands" WHERE "brands"."name" = 'unique_brand' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "unique_brand"], ["created_at", "2015-08-26 14:24:04.756277"], ["updated_at", "2015-08-26 14:24:04.756277"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------
+ProductTest: test_Product_fields_must_not_be_empty
+--------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.5ms)[0m  [1mDELETE FROM "brands"[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('Purina', '2015-08-26 14:24:28', '2015-08-26 14:24:28', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('Iams', '2015-08-26 14:24:28', '2015-08-26 14:24:28', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "categories"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('Toys', '2015-08-26 14:24:28', '2015-08-26 14:24:28', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('Food', '2015-08-26 14:24:28', '2015-08-26 14:24:28', 298486374)
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "products"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('Dog Chow', 2, 1, 'MyText', 9.99, 1, '2015-08-26 14:24:28', '2015-08-26 14:24:28', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('Squeaky Toy', 1, 2, 'MyText', 9.99, 1, '2015-08-26 14:24:28', '2015-08-26 14:24:28', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('noneed@toknow.com', '2015-08-26 14:24:28', '2015-08-26 14:24:28', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('stillnoneed@toknow.com', '2015-08-26 14:24:28', '2015-08-26 14:24:28', 298486374)
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------
+ProductTest: test_Product_fields_must_not_be_empty
+--------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------
+BrandTest: test_brand_fields_must_not_be_empty
+----------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBrand Exists (0.2ms)[0m  SELECT  1 AS one FROM "brands" WHERE "brands"."name" IS NULL LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------
+BrandTest: test_brand_name_must_be_unique
+-----------------------------------------
+  [1m[35mBrand Load (0.2ms)[0m  SELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBrand Exists (0.1ms)[0m  SELECT  1 AS one FROM "brands" WHERE "brands"."name" = 'Purina' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------
+BrandTest: test_brand_saves_with_all_valid_fields
+-------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mBrand Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "brands" WHERE "brands"."name" = 'unique_brand' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "unique_brand"], ["created_at", "2015-08-26 14:24:28.596522"], ["updated_at", "2015-08-26 14:24:28.596522"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------
+CategoryTest: test_Category_saves_with_all_valid_fields
+-------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCategory Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."name" = 'unique_category' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "unique_category"], ["created_at", "2015-08-26 14:24:28.603455"], ["updated_at", "2015-08-26 14:24:28.603455"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------
+CategoryTest: test_Category_name_must_be_unique
+-----------------------------------------------
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCategory Exists (0.3ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" = 'Toys' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------
+CategoryTest: test_Category_fields_must_not_be_empty
+----------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCategory Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "brands"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('Purina', '2015-08-26 14:29:54', '2015-08-26 14:29:54', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('Iams', '2015-08-26 14:29:54', '2015-08-26 14:29:54', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "categories"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('Toys', '2015-08-26 14:29:54', '2015-08-26 14:29:54', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('Food', '2015-08-26 14:29:54', '2015-08-26 14:29:54', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "products"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('Dog Chow', 2, 1, 'MyText', 9.99, 1, '2015-08-26 14:29:54', '2015-08-26 14:29:54', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('Squeaky Toy', 1, 2, 'MyText', 9.99, 1, '2015-08-26 14:29:54', '2015-08-26 14:29:54', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('noneed@toknow.com', '2015-08-26 14:29:54', '2015-08-26 14:29:54', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('stillnoneed@toknow.com', '2015-08-26 14:29:54', '2015-08-26 14:29:54', 298486374)
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------
+BrandTest: test_brand_saves_with_all_valid_fields
+-------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBrand Exists (0.2ms)[0m  SELECT  1 AS one FROM "brands" WHERE "brands"."name" = 'unique_brand' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "unique_brand"], ["created_at", "2015-08-26 14:29:54.530173"], ["updated_at", "2015-08-26 14:29:54.530173"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------
+BrandTest: test_brand_name_must_be_unique
+-----------------------------------------
+  [1m[36mBrand Load (0.2ms)[0m  [1mSELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mBrand Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "brands" WHERE "brands"."name" = 'Purina' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------
+BrandTest: test_brand_fields_must_not_be_empty
+----------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBrand Exists (0.1ms)[0m  SELECT  1 AS one FROM "brands" WHERE "brands"."name" IS NULL LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------
+ProductTest: test_Product_fields_must_not_be_empty
+--------------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------
+CategoryTest: test_Category_name_must_be_unique
+-----------------------------------------------
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCategory Exists (0.1ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" = 'Toys' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------
+CategoryTest: test_Category_fields_must_not_be_empty
+----------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCategory Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  begin transaction
+-------------------------------------------------------
+CategoryTest: test_Category_saves_with_all_valid_fields
+-------------------------------------------------------
+  [1m[36m (0.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" = 'unique_category' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "unique_category"], ["created_at", "2015-08-26 14:29:54.584346"], ["updated_at", "2015-08-26 14:29:54.584346"]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "brands"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('Purina', '2015-08-26 14:33:46', '2015-08-26 14:33:46', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('Iams', '2015-08-26 14:33:46', '2015-08-26 14:33:46', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "categories"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('Toys', '2015-08-26 14:33:46', '2015-08-26 14:33:46', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('Food', '2015-08-26 14:33:46', '2015-08-26 14:33:46', 298486374)
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "products"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('Dog Chow', 2, 1, 'MyText', 9.99, 1, '2015-08-26 14:33:46', '2015-08-26 14:33:46', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('Squeaky Toy', 1, 2, 'MyText', 9.99, 1, '2015-08-26 14:33:46', '2015-08-26 14:33:46', 298486374)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('noneed@toknow.com', '2015-08-26 14:33:46', '2015-08-26 14:33:46', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('stillnoneed@toknow.com', '2015-08-26 14:33:46', '2015-08-26 14:33:46', 298486374)
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------
+ProductTest: test_Product_fields_must_not_be_empty
+--------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------
+ProductTest: test_Product_name_should_be_unique
+-----------------------------------------------
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mProduct Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "products" WHERE ("products"."name" = 'Dog Chow' AND "products"."id" != 980190962) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-------------------------------------------------
+BrandTest: test_brand_saves_with_all_valid_fields
+-------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBrand Exists (0.1ms)[0m  SELECT  1 AS one FROM "brands" WHERE "brands"."name" = 'unique_brand' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "unique_brand"], ["created_at", "2015-08-26 14:33:46.354951"], ["updated_at", "2015-08-26 14:33:46.354951"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------
+BrandTest: test_brand_name_must_be_unique
+-----------------------------------------
+  [1m[36mBrand Load (0.1ms)[0m  [1mSELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mBrand Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "brands" WHERE "brands"."name" = 'Purina' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------
+BrandTest: test_brand_fields_must_not_be_empty
+----------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBrand Exists (0.1ms)[0m  SELECT  1 AS one FROM "brands" WHERE "brands"."name" IS NULL LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------
+CategoryTest: test_Category_fields_must_not_be_empty
+----------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCategory Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-------------------------------------------------------
+CategoryTest: test_Category_saves_with_all_valid_fields
+-------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCategory Exists (0.1ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" = 'unique_category' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "unique_category"], ["created_at", "2015-08-26 14:33:46.380290"], ["updated_at", "2015-08-26 14:33:46.380290"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------------
+CategoryTest: test_Category_name_must_be_unique
+-----------------------------------------------
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCategory Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."name" = 'Toys' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "brands"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('Purina', '2015-08-26 14:37:50', '2015-08-26 14:37:50', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('Iams', '2015-08-26 14:37:50', '2015-08-26 14:37:50', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "categories"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('Toys', '2015-08-26 14:37:50', '2015-08-26 14:37:50', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('Food', '2015-08-26 14:37:50', '2015-08-26 14:37:50', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "products"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('Dog Chow', 2, 1, 'MyText', 9.99, 1, '2015-08-26 14:37:50', '2015-08-26 14:37:50', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('Squeaky Toy', 1, 2, 'MyText', 9.99, 1, '2015-08-26 14:37:50', '2015-08-26 14:37:50', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('noneed@toknow.com', '2015-08-26 14:37:50', '2015-08-26 14:37:50', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('stillnoneed@toknow.com', '2015-08-26 14:37:50', '2015-08-26 14:37:50', 298486374)
+  [1m[36m (2.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------------
+ProductTest: test_Product_fields_must_not_be_empty
+--------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------
+ProductTest: test_Product_name_should_be_unique
+-----------------------------------------------
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mProduct Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "products" WHERE ("products"."name" = 'Dog Chow' AND "products"."id" != 980190962) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-------------------------------------------------------
+CategoryTest: test_Category_saves_with_all_valid_fields
+-------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCategory Exists (0.1ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" = 'unique_category' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "unique_category"], ["created_at", "2015-08-26 14:37:50.092866"], ["updated_at", "2015-08-26 14:37:50.092866"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------
+CategoryTest: test_Category_name_must_be_unique
+-----------------------------------------------
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCategory Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."name" = 'Toys' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------------
+CategoryTest: test_Category_fields_must_not_be_empty
+----------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCategory Exists (0.1ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------
+BrandTest: test_brand_saves_with_all_valid_fields
+-------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mBrand Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "brands" WHERE "brands"."name" = 'unique_brand' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "unique_brand"], ["created_at", "2015-08-26 14:37:50.118553"], ["updated_at", "2015-08-26 14:37:50.118553"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------
+BrandTest: test_brand_name_must_be_unique
+-----------------------------------------
+  [1m[35mBrand Load (0.1ms)[0m  SELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBrand Exists (0.1ms)[0m  SELECT  1 AS one FROM "brands" WHERE "brands"."name" = 'Purina' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+BrandTest: test_brand_fields_must_not_be_empty
+----------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mBrand Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "brands" WHERE "brands"."name" IS NULL LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "brands"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('Purina', '2015-08-26 14:38:15', '2015-08-26 14:38:15', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('Iams', '2015-08-26 14:38:15', '2015-08-26 14:38:15', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "categories"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('Toys', '2015-08-26 14:38:15', '2015-08-26 14:38:15', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('Food', '2015-08-26 14:38:15', '2015-08-26 14:38:15', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "products"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('Dog Chow', 2, 1, 'MyText', 9.99, 1, '2015-08-26 14:38:15', '2015-08-26 14:38:15', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('Squeaky Toy', 1, 2, 'MyText', 9.99, 1, '2015-08-26 14:38:15', '2015-08-26 14:38:15', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('noneed@toknow.com', '2015-08-26 14:38:15', '2015-08-26 14:38:15', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('stillnoneed@toknow.com', '2015-08-26 14:38:15', '2015-08-26 14:38:15', 298486374)
+  [1m[36m (2.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------
+BrandTest: test_brand_fields_must_not_be_empty
+----------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBrand Exists (0.2ms)[0m  SELECT  1 AS one FROM "brands" WHERE "brands"."name" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------
+BrandTest: test_brand_name_must_be_unique
+-----------------------------------------
+  [1m[35mBrand Load (0.2ms)[0m  SELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBrand Exists (0.1ms)[0m  SELECT  1 AS one FROM "brands" WHERE "brands"."name" = 'Purina' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------
+BrandTest: test_brand_saves_with_all_valid_fields
+-------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mBrand Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "brands" WHERE "brands"."name" = 'unique_brand' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "unique_brand"], ["created_at", "2015-08-26 14:38:15.700336"], ["updated_at", "2015-08-26 14:38:15.700336"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------
+ProductTest: test_Product_fields_must_not_be_empty
+--------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mProduct Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "products" WHERE "products"."name" IS NULL LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------------
+ProductTest: test_Product_name_should_be_unique
+-----------------------------------------------
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mProduct Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "products" WHERE ("products"."name" = 'Dog Chow' AND "products"."id" != 980190962) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------
+CategoryTest: test_Category_name_must_be_unique
+-----------------------------------------------
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCategory Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."name" = 'Toys' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------------
+CategoryTest: test_Category_fields_must_not_be_empty
+----------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCategory Exists (0.1ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------
+CategoryTest: test_Category_saves_with_all_valid_fields
+-------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCategory Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."name" = 'unique_category' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "unique_category"], ["created_at", "2015-08-26 14:38:15.734967"], ["updated_at", "2015-08-26 14:38:15.734967"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "brands"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('Purina', '2015-08-26 14:38:47', '2015-08-26 14:38:47', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('Iams', '2015-08-26 14:38:47', '2015-08-26 14:38:47', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "categories"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('Toys', '2015-08-26 14:38:47', '2015-08-26 14:38:47', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('Food', '2015-08-26 14:38:47', '2015-08-26 14:38:47', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "products"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('Dog Chow', 2, 1, 'MyText', 9.99, 1, '2015-08-26 14:38:47', '2015-08-26 14:38:47', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('Squeaky Toy', 1, 2, 'MyText', 9.99, 1, '2015-08-26 14:38:47', '2015-08-26 14:38:47', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('noneed@toknow.com', '2015-08-26 14:38:47', '2015-08-26 14:38:47', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('stillnoneed@toknow.com', '2015-08-26 14:38:47', '2015-08-26 14:38:47', 298486374)
+  [1m[36m (2.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------------
+CategoryTest: test_Category_fields_must_not_be_empty
+----------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------
+CategoryTest: test_Category_name_must_be_unique
+-----------------------------------------------
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" = 'Toys' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------
+CategoryTest: test_Category_saves_with_all_valid_fields
+-------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCategory Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."name" = 'unique_category' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "unique_category"], ["created_at", "2015-08-26 14:38:47.477296"], ["updated_at", "2015-08-26 14:38:47.477296"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------
+ProductTest: test_Product_fields_must_not_be_empty
+--------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mProduct Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "products" WHERE "products"."name" IS NULL LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------
+ProductTest: test_Product_name_should_be_unique
+-----------------------------------------------
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+BrandTest: test_brand_fields_must_not_be_empty
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mBrand Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "brands" WHERE "brands"."name" IS NULL LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------
+BrandTest: test_brand_name_must_be_unique
+-----------------------------------------
+  [1m[36mBrand Load (0.1ms)[0m  [1mSELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mBrand Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "brands" WHERE "brands"."name" = 'Purina' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------
+BrandTest: test_brand_saves_with_all_valid_fields
+-------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBrand Exists (0.1ms)[0m  SELECT  1 AS one FROM "brands" WHERE "brands"."name" = 'unique_brand' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "unique_brand"], ["created_at", "2015-08-26 14:38:47.508598"], ["updated_at", "2015-08-26 14:38:47.508598"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "brands"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('Purina', '2015-08-26 14:42:47', '2015-08-26 14:42:47', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('Iams', '2015-08-26 14:42:47', '2015-08-26 14:42:47', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "categories"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('Toys', '2015-08-26 14:42:47', '2015-08-26 14:42:47', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('Food', '2015-08-26 14:42:47', '2015-08-26 14:42:47', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "products"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('Dog Chow', 2, 1, 'MyText', 9.99, 1, '2015-08-26 14:42:47', '2015-08-26 14:42:47', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('Squeaky Toy', 1, 2, 'MyText', 9.99, 1, '2015-08-26 14:42:47', '2015-08-26 14:42:47', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('noneed@toknow.com', '2015-08-26 14:42:47', '2015-08-26 14:42:47', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('stillnoneed@toknow.com', '2015-08-26 14:42:47', '2015-08-26 14:42:47', 298486374)
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------
+BrandTest: test_brand_name_must_be_unique
+-----------------------------------------
+  [1m[36mBrand Load (0.2ms)[0m  [1mSELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mBrand Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "brands" WHERE "brands"."name" = 'Purina' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------
+BrandTest: test_brand_fields_must_not_be_empty
+----------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBrand Exists (0.1ms)[0m  SELECT  1 AS one FROM "brands" WHERE "brands"."name" IS NULL LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------
+BrandTest: test_brand_saves_with_all_valid_fields
+-------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mBrand Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "brands" WHERE "brands"."name" = 'unique_brand' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "unique_brand"], ["created_at", "2015-08-26 14:42:47.544125"], ["updated_at", "2015-08-26 14:42:47.544125"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------
+CategoryTest: test_Category_name_must_be_unique
+-----------------------------------------------
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCategory Exists (0.1ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" = 'Toys' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------
+CategoryTest: test_Category_fields_must_not_be_empty
+----------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCategory Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-------------------------------------------------------
+CategoryTest: test_Category_saves_with_all_valid_fields
+-------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCategory Exists (0.1ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" = 'unique_category' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "unique_category"], ["created_at", "2015-08-26 14:42:47.558007"], ["updated_at", "2015-08-26 14:42:47.558007"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------------
+ProductTest: test_product_name_should_be_unique
+-----------------------------------------------
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mProduct Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "products" WHERE "products"."name" = 'Dog Chow' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+--------------------------------------------------
+ProductTest: test_Product_fields_must_not_be_empty
+--------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mProduct Exists (0.1ms)[0m  SELECT  1 AS one FROM "products" WHERE "products"."name" IS NULL LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "brands"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('Purina', '2015-08-26 14:43:56', '2015-08-26 14:43:56', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('Iams', '2015-08-26 14:43:56', '2015-08-26 14:43:56', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "categories"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('Toys', '2015-08-26 14:43:56', '2015-08-26 14:43:56', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('Food', '2015-08-26 14:43:56', '2015-08-26 14:43:56', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "products"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('Dog Chow', 2, 1, 'MyText', 9.99, 1, '2015-08-26 14:43:56', '2015-08-26 14:43:56', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('Squeaky Toy', 1, 2, 'MyText', 9.99, 1, '2015-08-26 14:43:56', '2015-08-26 14:43:56', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('noneed@toknow.com', '2015-08-26 14:43:56', '2015-08-26 14:43:56', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('stillnoneed@toknow.com', '2015-08-26 14:43:56', '2015-08-26 14:43:56', 298486374)
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------
+BrandTest: test_brand_fields_must_not_be_empty
+----------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBrand Exists (0.2ms)[0m  SELECT  1 AS one FROM "brands" WHERE "brands"."name" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------
+BrandTest: test_brand_name_must_be_unique
+-----------------------------------------
+  [1m[35mBrand Load (0.2ms)[0m  SELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBrand Exists (0.1ms)[0m  SELECT  1 AS one FROM "brands" WHERE "brands"."name" = 'Purina' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------
+BrandTest: test_brand_saves_with_all_valid_fields
+-------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mBrand Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "brands" WHERE "brands"."name" = 'unique_brand' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "unique_brand"], ["created_at", "2015-08-26 14:43:56.692222"], ["updated_at", "2015-08-26 14:43:56.692222"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------
+CategoryTest: test_Category_saves_with_all_valid_fields
+-------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCategory Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."name" = 'unique_category' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "unique_category"], ["created_at", "2015-08-26 14:43:56.700011"], ["updated_at", "2015-08-26 14:43:56.700011"]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------
+CategoryTest: test_Category_name_must_be_unique
+-----------------------------------------------
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" = 'Toys' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------
+CategoryTest: test_Category_fields_must_not_be_empty
+----------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCategory Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------------------------------
+ProductTest: test_product_price_must_be_positive_and_greater_than_zero
+----------------------------------------------------------------------
+  [1m[36mProduct Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "products" WHERE "products"."name" = 'my product' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------
+ProductTest: test_product_name_should_be_unique
+-----------------------------------------------
+  [1m[35mProduct Load (0.4ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mProduct Exists (0.1ms)[0m  SELECT  1 AS one FROM "products" WHERE "products"."name" = 'Dog Chow' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------
+ProductTest: test_Product_fields_must_not_be_empty
+--------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mProduct Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "products" WHERE "products"."name" IS NULL LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "brands"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('Purina', '2015-08-26 14:44:59', '2015-08-26 14:44:59', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('Iams', '2015-08-26 14:44:59', '2015-08-26 14:44:59', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "categories"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('Toys', '2015-08-26 14:44:59', '2015-08-26 14:44:59', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('Food', '2015-08-26 14:44:59', '2015-08-26 14:44:59', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "products"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('Dog Chow', 2, 1, 'MyText', 9.99, 1, '2015-08-26 14:44:59', '2015-08-26 14:44:59', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('Squeaky Toy', 1, 2, 'MyText', 9.99, 1, '2015-08-26 14:44:59', '2015-08-26 14:44:59', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('noneed@toknow.com', '2015-08-26 14:44:59', '2015-08-26 14:44:59', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('stillnoneed@toknow.com', '2015-08-26 14:44:59', '2015-08-26 14:44:59', 298486374)
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------
+BrandTest: test_brand_fields_must_not_be_empty
+----------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBrand Exists (0.2ms)[0m  SELECT  1 AS one FROM "brands" WHERE "brands"."name" IS NULL LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------
+BrandTest: test_brand_saves_with_all_valid_fields
+-------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mBrand Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "brands" WHERE "brands"."name" = 'unique_brand' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "unique_brand"], ["created_at", "2015-08-26 14:44:59.190974"], ["updated_at", "2015-08-26 14:44:59.190974"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------
+BrandTest: test_brand_name_must_be_unique
+-----------------------------------------
+  [1m[35mBrand Load (0.2ms)[0m  SELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBrand Exists (0.1ms)[0m  SELECT  1 AS one FROM "brands" WHERE "brands"."name" = 'Purina' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------
+ProductTest: test_Product_name_should_be_unique
+-----------------------------------------------
+  [1m[35mProduct Load (0.2ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mProduct Exists (0.1ms)[0m  SELECT  1 AS one FROM "products" WHERE "products"."name" = 'Dog Chow' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------
+ProductTest: test_product_name_should_be_unique
+-----------------------------------------------
+  [1m[35mProduct Load (0.1ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mProduct Exists (0.1ms)[0m  SELECT  1 AS one FROM "products" WHERE "products"."name" = 'Dog Chow' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------
+ProductTest: test_Product_fields_must_not_be_empty
+--------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mProduct Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "products" WHERE "products"."name" IS NULL LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------------------------------
+ProductTest: test_product_price_must_be_positive_and_greater_than_zero
+----------------------------------------------------------------------
+  [1m[36mProduct Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "products" WHERE "products"."name" = 'my product' LIMIT 1[0m
+  [1m[35mProduct Exists (0.1ms)[0m  SELECT  1 AS one FROM "products" WHERE "products"."name" = 'my product' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-------------------------------------------------------
+CategoryTest: test_Category_saves_with_all_valid_fields
+-------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCategory Exists (0.1ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" = 'unique_category' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "unique_category"], ["created_at", "2015-08-26 14:44:59.235463"], ["updated_at", "2015-08-26 14:44:59.235463"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------------
+CategoryTest: test_Category_name_must_be_unique
+-----------------------------------------------
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCategory Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."name" = 'Toys' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------------
+CategoryTest: test_Category_fields_must_not_be_empty
+----------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCategory Exists (0.1ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "brands"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('Purina', '2015-08-26 14:50:30', '2015-08-26 14:50:30', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('Iams', '2015-08-26 14:50:30', '2015-08-26 14:50:30', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "categories"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('Toys', '2015-08-26 14:50:30', '2015-08-26 14:50:30', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('Food', '2015-08-26 14:50:30', '2015-08-26 14:50:30', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "products"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('Dog Chow', 2, 1, 'MyText', 9.99, 1, '2015-08-26 14:50:30', '2015-08-26 14:50:30', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('Squeaky Toy', 1, 2, 'MyText', 9.99, 1, '2015-08-26 14:50:30', '2015-08-26 14:50:30', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('noneed@toknow.com', '2015-08-26 14:50:30', '2015-08-26 14:50:30', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('stillnoneed@toknow.com', '2015-08-26 14:50:30', '2015-08-26 14:50:30', 298486374)
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------------
+CategoryTest: test_Category_saves_with_all_valid_fields
+-------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCategory Exists (0.2ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" = 'unique_category' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "unique_category"], ["created_at", "2015-08-26 14:50:30.689794"], ["updated_at", "2015-08-26 14:50:30.689794"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------
+CategoryTest: test_Category_name_must_be_unique
+-----------------------------------------------
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCategory Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "categories" WHERE "categories"."name" = 'Toys' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------------
+CategoryTest: test_Category_fields_must_not_be_empty
+----------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCategory Exists (0.1ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" IS NULL LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------
+ProductTest: test_Product_fields_must_not_be_empty
+--------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mProduct Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "products" WHERE "products"."name" IS NULL LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------------
+ProductTest: test_product_saves_with_all_valid_fields
+-----------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mProduct Exists (0.1ms)[0m  SELECT  1 AS one FROM "products" WHERE "products"."name" = 'stuff' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "products" ("name", "description", "category_id", "brand_id", "quantity", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "stuff"], ["description", "text"], ["category_id", 1], ["brand_id", 1], ["quantity", 1], ["price", 1.0], ["created_at", "2015-08-26 14:50:30.728960"], ["updated_at", "2015-08-26 14:50:30.728960"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------------------------------
+ProductTest: test_product_price_must_be_positive_and_greater_than_zero
+----------------------------------------------------------------------
+  [1m[36mProduct Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "products" WHERE "products"."name" = 'stuff' LIMIT 1[0m
+  [1m[35mProduct Exists (0.1ms)[0m  SELECT  1 AS one FROM "products" WHERE "products"."name" = 'stuff' LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------------
+ProductTest: test_Product_name_should_be_unique
+-----------------------------------------------
+  [1m[36mProduct Load (0.4ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mProduct Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "products" WHERE "products"."name" = 'Dog Chow' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------
+BrandTest: test_brand_fields_must_not_be_empty
+----------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBrand Exists (0.1ms)[0m  SELECT  1 AS one FROM "brands" WHERE "brands"."name" IS NULL LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------
+BrandTest: test_brand_name_must_be_unique
+-----------------------------------------
+  [1m[35mBrand Load (0.1ms)[0m  SELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mBrand Exists (0.1ms)[0m  SELECT  1 AS one FROM "brands" WHERE "brands"."name" = 'Purina' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------
+BrandTest: test_brand_saves_with_all_valid_fields
+-------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mBrand Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "brands" WHERE "brands"."name" = 'unique_brand' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "unique_brand"], ["created_at", "2015-08-26 14:50:30.753302"], ["updated_at", "2015-08-26 14:50:30.753302"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
