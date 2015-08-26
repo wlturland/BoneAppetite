@@ -10,5 +10,5 @@ class ActiveSupport::TestCase
 
   
   # TODO: Figure out where to put devise test helpers
-  # include Devise::TestHelpers
+  include Devise::TestHelpers
 end
