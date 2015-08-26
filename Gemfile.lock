@@ -36,10 +36,14 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    annotate (2.6.10)
+      activerecord (>= 3.2, <= 4.3)
+      rake (~> 10.4)
     arel (6.0.3)
     autoprefixer-rails (5.2.1.2)
       execjs
       json
+    awesome_print (1.6.1)
     bcrypt (3.1.10)
     better_errors (2.1.1)
       coderay (>= 1.0.0)
@@ -76,6 +80,8 @@ GEM
     execjs (2.6.0)
     figaro (1.1.1)
       thor (~> 0.14)
+    font-awesome-rails (4.4.0.0)
+      railties (>= 3.2, < 5.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     hub (1.12.4)
@@ -177,12 +183,15 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  annotate (~> 2.6.6)
+  awesome_print
   better_errors
   bootstrap-sass
   byebug
   coffee-rails (~> 4.1.0)
   devise
   figaro (>= 1.0.0.rc1)
+  font-awesome-rails
   hub
   jbuilder (~> 2.0)
   jquery-rails

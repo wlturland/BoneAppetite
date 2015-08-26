@@ -15,13 +15,14 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
-  <div class="field">
-    <%= f.label :category_id %><br>
-    <%= f.text_field :category_id %>
+  </div>
+  <div class="field form-group">
+     <%= f.label :category_id %><br>
+     <%= f.collection_select :category_id, Category.order(:name), :id, :name, {prompt: "Select a category"}, {class: "form-control"} %>
   </div>
   <div class="field">
     <%= f.label :brand_id %><br>
-    <%= f.text_field :brand_id %>
+    <%= f.collection_select :brand_id, Brand.order(:name), :id, :name, {prompt: "Select a brand"}, {class: "form-control"} %>
   </div>
   <div class="field">
     <%= f.label :description %><br>
@@ -34,6 +35,10 @@
   <div class="field">
     <%= f.label :quantity %><br>
     <%= f.number_field :quantity %>
+  </div>
+  <div>
+    <%= f.label :image %>
+    <%= f.file_field :image %>
   </div>
   <div class="actions">
     <%= f.submit %>

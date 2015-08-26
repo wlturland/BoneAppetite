@@ -961,3 +961,349 @@ Processing by CategoriesController#show as HTML
   Rendered layouts/_messages.html.erb (0.0ms)
 Completed 200 OK in 5ms (Views: 4.7ms | ActiveRecord: 0.0ms)
   [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (1.1ms)[0m  [1mCREATE TABLE "brands" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.9ms)[0m  CREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "category_id" integer, "brand_id" integer, "description" text, "price" decimal, "quantity" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "image_file_name" varchar, "image_content_type" varchar, "image_file_size" integer, "image_updated_at" datetime) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.9ms)[0m  [1mCREATE  INDEX "index_products_on_brand_id" ON "products" ("brand_id")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_products_on_brand_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_products_on_brand_id' AND type='index'
+
+  [1m[36m (1.0ms)[0m  [1mCREATE  INDEX "index_products_on_category_id" ON "products" ("category_id")[0m
+  [1m[35m (0.9ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "name" varchar, "role" integer) 
+  [1m[36m (0.8ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.9ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.9ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.2ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (1.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150825152224')[0m
+  [1m[35m (0.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150825134331')
+  [1m[36m (0.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150825134333')[0m
+  [1m[35m (0.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150825134337')
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150825141125')[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150825141141')
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150825141252')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "brands"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-26 13:38:54', '2015-08-26 13:38:54', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "brands" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-26 13:38:54', '2015-08-26 13:38:54', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "categories"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-26 13:38:54', '2015-08-26 13:38:54', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2015-08-26 13:38:54', '2015-08-26 13:38:54', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "products"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('MyString', NULL, NULL, 'MyText', 9.99, 1, '2015-08-26 13:38:54', '2015-08-26 13:38:54', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "products" ("name", "category_id", "brand_id", "description", "price", "quantity", "created_at", "updated_at", "id") VALUES ('MyString', NULL, NULL, 'MyText', 9.99, 1, '2015-08-26 13:38:54', '2015-08-26 13:38:54', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('noneed@toknow.com', '2015-08-26 13:38:54', '2015-08-26 13:38:54', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("email", "created_at", "updated_at", "id") VALUES ('stillnoneed@toknow.com', '2015-08-26 13:38:54', '2015-08-26 13:38:54', 298486374)[0m
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------------
+ProductsControllerTest: test_should_show_product
+------------------------------------------------
+  [1m[35mProduct Load (0.2ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  Rendered products/show.html.erb within layouts/application (12.8ms)
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+ProductsControllerTest: test_should_destroy_product
+---------------------------------------------------
+  [1m[35mProduct Load (0.1ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products"[0m
+Processing by ProductsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mProduct Load (0.0ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "products" WHERE "products"."id" = ?  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/products
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "products"
+  [1m[36m (1.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------------
+ProductsControllerTest: test_should_create_product
+--------------------------------------------------
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "products"
+Processing by ProductsController#create as HTML
+  Parameters: {"product"=>{"brand_id"=>nil, "category_id"=>nil, "description"=>"MyText", "name"=>"MyString", "price"=>"9.99", "quantity"=>"1"}}
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "products" ("name", "description", "price", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "MyString"], ["description", "MyText"], ["price", 9.99], ["quantity", 1], ["created_at", "2015-08-26 13:38:54.959832"], ["updated_at", "2015-08-26 13:38:54.959832"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/products/980190963
+Completed 302 Found in 9ms (ActiveRecord: 0.5ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "products"
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------
+ProductsControllerTest: test_should_get_edit
+--------------------------------------------
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mProduct Load (0.0ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories"  ORDER BY "categories"."name" ASC[0m
+  [1m[35mBrand Load (0.1ms)[0m  SELECT "brands".* FROM "brands"  ORDER BY "brands"."name" ASC
+  Rendered products/_form.html.erb (48.1ms)
+  Rendered products/edit.html.erb within layouts/application (53.5ms)
+  Rendered layouts/_navigation_links.html.erb (7.9ms)
+  Rendered layouts/_navigation.html.erb (10.0ms)
+  Rendered layouts/_messages.html.erb (0.9ms)
+Completed 200 OK in 6042ms (Views: 6041.2ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------------
+ProductsControllerTest: test_should_update_product
+--------------------------------------------------
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProductsController#update as HTML
+  Parameters: {"product"=>{"brand_id"=>nil, "category_id"=>nil, "description"=>"MyText", "name"=>"MyString", "price"=>"9.99", "quantity"=>"1"}, "id"=>"980190962"}
+  [1m[35mProduct Load (0.0ms)[0m  SELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/products/980190962
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+---------------------------------------------
+ProductsControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products"
+  Rendered products/index.html.erb within layouts/application (3.6ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.3ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-------------------------------------------
+ProductsControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProductsController#new as HTML
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories"  ORDER BY "categories"."name" ASC
+  [1m[36mBrand Load (0.1ms)[0m  [1mSELECT "brands".* FROM "brands"  ORDER BY "brands"."name" ASC[0m
+  Rendered products/_form.html.erb (4.7ms)
+  Rendered products/new.html.erb within layouts/application (5.2ms)
+  Rendered layouts/_navigation_links.html.erb (0.5ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+  Rendered layouts/_messages.html.erb (0.0ms)
+Completed 200 OK in 9ms (Views: 8.6ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+BrandsControllerTest: test_should_update_brand
+----------------------------------------------
+  [1m[35mBrand Load (0.2ms)[0m  SELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by BrandsController#update as HTML
+  Parameters: {"brand"=>{"name"=>"MyString"}, "id"=>"980190962"}
+  [1m[36mBrand Load (0.0ms)[0m  [1mSELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/brands/980190962
+Completed 302 Found in 3ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+BrandsControllerTest: test_should_get_edit
+------------------------------------------
+  [1m[35mBrand Load (0.1ms)[0m  SELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by BrandsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mBrand Load (0.0ms)[0m  [1mSELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  Rendered brands/_form.html.erb (2.2ms)
+  Rendered brands/edit.html.erb within layouts/application (4.6ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (0.6ms)
+  Rendered layouts/_messages.html.erb (0.0ms)
+Completed 200 OK in 11ms (Views: 11.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+BrandsControllerTest: test_should_create_brand
+----------------------------------------------
+  [1m[35mBrand Load (0.1ms)[0m  SELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "brands"[0m
+Processing by BrandsController#create as HTML
+  Parameters: {"brand"=>{"name"=>"MyString"}}
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "brands" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "MyString"], ["created_at", "2015-08-26 13:39:01.064269"], ["updated_at", "2015-08-26 13:39:01.064269"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/brands/980190963
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "brands"[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------------
+BrandsControllerTest: test_should_get_index
+-------------------------------------------
+  [1m[35mBrand Load (0.1ms)[0m  SELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by BrandsController#index as HTML
+  [1m[36mBrand Load (0.1ms)[0m  [1mSELECT "brands".* FROM "brands"[0m
+  Rendered brands/index.html.erb within layouts/application (1.8ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (0.6ms)
+  Rendered layouts/_messages.html.erb (0.0ms)
+Completed 200 OK in 6ms (Views: 5.8ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------
+BrandsControllerTest: test_should_destroy_brand
+-----------------------------------------------
+  [1m[35mBrand Load (0.1ms)[0m  SELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "brands"[0m
+Processing by BrandsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mBrand Load (0.0ms)[0m  SELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "brands" WHERE "brands"."id" = ?  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/brands
+Completed 302 Found in 1ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "brands"
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------
+BrandsControllerTest: test_should_show_brand
+--------------------------------------------
+  [1m[36mBrand Load (0.1ms)[0m  [1mSELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by BrandsController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mBrand Load (0.0ms)[0m  SELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1  [["id", 980190962]]
+  Rendered brands/show.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_navigation_links.html.erb (0.7ms)
+  Rendered layouts/_navigation.html.erb (0.9ms)
+  Rendered layouts/_messages.html.erb (0.0ms)
+Completed 200 OK in 5ms (Views: 5.1ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  begin transaction
+-----------------------------------------
+BrandsControllerTest: test_should_get_new
+-----------------------------------------
+  [1m[36mBrand Load (0.1ms)[0m  [1mSELECT  "brands".* FROM "brands" WHERE "brands"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by BrandsController#new as HTML
+  Rendered brands/_form.html.erb (1.1ms)
+  Rendered brands/new.html.erb within layouts/application (1.9ms)
+  Rendered layouts/_navigation_links.html.erb (0.7ms)
+  Rendered layouts/_navigation.html.erb (0.9ms)
+  Rendered layouts/_messages.html.erb (0.0ms)
+Completed 200 OK in 6ms (Views: 5.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------
+CategoriesControllerTest: test_should_update_category
+-----------------------------------------------------
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by CategoriesController#update as HTML
+  Parameters: {"category"=>{"name"=>"MyString"}, "id"=>"980190962"}
+  [1m[36mCategory Load (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/categories/980190962
+Completed 302 Found in 3ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------
+CategoriesControllerTest: test_should_destroy_category
+------------------------------------------------------
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "categories"[0m
+Processing by CategoriesController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mCategory Load (0.0ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "categories" WHERE "categories"."id" = ?  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/categories
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "categories"
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+---------------------------------------------
+CategoriesControllerTest: test_should_get_new
+---------------------------------------------
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by CategoriesController#new as HTML
+  Rendered categories/_form.html.erb (2.5ms)
+  Rendered categories/new.html.erb within layouts/application (4.2ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+  Rendered layouts/_messages.html.erb (0.0ms)
+Completed 200 OK in 10ms (Views: 9.9ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+CategoriesControllerTest: test_should_show_category
+---------------------------------------------------
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mCategory Load (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  Rendered categories/show.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.8ms)
+  Rendered layouts/_navigation.html.erb (1.0ms)
+  Rendered layouts/_messages.html.erb (0.0ms)
+Completed 200 OK in 6ms (Views: 5.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------
+CategoriesControllerTest: test_should_get_index
+-----------------------------------------------
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.erb within layouts/application (2.1ms)
+  Rendered layouts/_navigation_links.html.erb (0.9ms)
+  Rendered layouts/_navigation.html.erb (1.3ms)
+  Rendered layouts/_messages.html.erb (0.0ms)
+Completed 200 OK in 7ms (Views: 6.6ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+CategoriesControllerTest: test_should_get_edit
+----------------------------------------------
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by CategoriesController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mCategory Load (0.0ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  Rendered categories/_form.html.erb (1.2ms)
+  Rendered categories/edit.html.erb within layouts/application (1.9ms)
+  Rendered layouts/_navigation_links.html.erb (0.5ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+  Rendered layouts/_messages.html.erb (0.0ms)
+Completed 200 OK in 6ms (Views: 5.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------
+CategoriesControllerTest: test_should_create_category
+-----------------------------------------------------
+  [1m[35mCategory Load (0.1ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "categories"[0m
+Processing by CategoriesController#create as HTML
+  Parameters: {"category"=>{"name"=>"MyString"}}
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "MyString"], ["created_at", "2015-08-26 13:39:01.165831"], ["updated_at", "2015-08-26 13:39:01.165831"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/categories/980190963
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "categories"[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
